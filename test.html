@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ÎÞ±êÌâÎÄµµ</title>
+    <script>
+        window.onload=function()
+        {
+            var oTab=document.getElementById('tab1');
+            var oTxt=document.getElementById('name');
+            var oBtn=document.getElementById('btn1');
+
+            oBtn.onclick=function()
+            {
+                for (var i=0;i<oTab.tBodies[0].rows.length;i++)
+                {
+                    var sTab=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+                    var sTxt=oTxt.value.toLowerCase();
+                    if(sTab.search(sTxt)!=-1)
+                    {
+                        oTab.tBodies[0].rows[i].style.background='#09c';
+                    }
+                    else
+                    {
+                        oTab.tBodies[0].rows[i].style.background='';
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+ÐÕÃû£º<input id="name" type="text"/>
+<input id="btn1" type="button" value="ËÑË÷"/>
+<table id="tab1" border="1" width="200">
+    <thead>
+    <td>ID</td>
+    <td>ÐÕÃû</td>
+    <td>ÄêÁä</td>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Blue</td>
+        <td>15</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>¶º±È</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>´óÍ·</td>
+        <td>5</td>
+    <tr>
+        <td>4</td>
+        <td>lue</td>
+        <td>15</td>
+    </tr>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

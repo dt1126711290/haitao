@@ -1,0 +1,48 @@
+    <script>
+
+        function a(e) {
+            var zh2 = $('.zh2').val();
+            for (var i = 0; i < $('.btn').length; i++) {
+                var zh1 = $('.zh1').eq(i).text();
+                var rs = zh1.search(zh2);
+                if (rs == -1)
+                    $('tbody').find('tr').eq(i).hide();
+            }
+
+        }
+
+        $(function () {
+
+            $('.zh2').focus();
+
+            $('.btn-danger').bind('click', function () {
+                var boxes = document.getElementsByName("test");
+                tr = boxes[$(this).index('.btn-danger')].parentNode.parentNode;
+                tr.parentNode.removeChild(tr);
+                return false;
+            });
+
+
+
+            $('.zh2').bind('input propertychange keydown', function (e) {
+                a();
+                var keynum;
+                keynum = window.event ? e.keyCode : e.which;
+                if(keynum==8){
+                    $('tr').show();
+                    a();
+                }
+            });
+
+            $('.zy2').bind('input propertychange', function () {
+                var zy2=$('.zy2').val();
+                for(var i=0;i<$('.btn').length;i++){
+                    var zy1=$('.zy1').eq(i).text();
+                    var rs=zy1.search(zy2);
+                    console.log(rs);
+                    if(rs==-1)
+                        $('tbody').find('tr').eq(i).hide();
+                }
+            });
+        });
+    </script>
